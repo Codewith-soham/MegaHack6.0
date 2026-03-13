@@ -32,6 +32,10 @@ const userSchema = new mongoose.Schema({
     state: { type: String, trim: true },
     district: { type: String, trim: true },
   },
+   refreshToken: {
+    type: String,
+    default: null,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -48,5 +52,6 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
 }
 
 const User = mongoose.model("User", userSchema)
-export { User }
 
+
+export { User }

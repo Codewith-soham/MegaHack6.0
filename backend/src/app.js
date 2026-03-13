@@ -19,4 +19,7 @@ app.use(express.json({limit: "10mb"})) //parses incoming json data from req.body
 app.use(express.urlencoded({extended: true})) //parses urlencoded data from forms - supports larger payloads for profiles, images, etc.
 app.use(cookieParser())  //parses cookies sent by the client required to read jwt refresh tokens
 
+import authRoutes from "./routes/authRoute.js"
+app.use("/api/auth", authRoutes) //register auth routes under /api/auth path
+
 export { app }
